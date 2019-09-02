@@ -1,6 +1,6 @@
 {
   "name": "@lemuria/absolute-proxy",
-  "version": "0.0.0-pre",
+  "version": "1.0.0",
   "description": "Assigns Styles To Position Element Absolutely On Top Of The Target One.",
   "main": "build/index.js",
   "module": "src/index.js",
