@@ -10,16 +10,18 @@ import absoluteProxy from '@lemuria/absolute-proxy'
 
 ```## absoluteProxy
 [
-  ["arg1", "string"],
-  ["arg2?", "boolean"]
+  ["obj", "HTMLElement"],
+  ["element", "HTMLElement"]
 ]
 ```
 
-Call this function to get the result you want.
+Computes the `getBoundingClientRect` and `getComputedStyle` of the target element to find out the position that should be set on the **obj** for it to appear on the same place on screen, but with absolute position (e.g., relative to `body`).
 
-%TYPEDEF types/index.xml%
+Accounts for `padding` and `border`.
+
+<!-- %TYPEDEF types/index.xml% -->
 
 %EXAMPLE: example, ../src => @lemuria/absolute-proxy%
-%FORK example%
+<!-- %FORK example% -->
 
 %~%

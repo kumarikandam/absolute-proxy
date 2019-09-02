@@ -1,9 +1,12 @@
-/* alanode example/ */
-import absoluteProxy from '../src'
+import positionAbsolute from '../src'
 
-(async () => {
-  const res = await absoluteProxy({
-    text: 'example',
-  })
-  console.log(res)
-})()
+const obj = document.createElement('object')
+obj.type = 'image/svg+xml'
+obj.data = src
+
+const element = document.getElementById('example')
+
+positionAbsolute(obj, element)
+window.addEventListener('resize', () => {
+  positionAbsolute(obj, element)
+})
