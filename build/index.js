@@ -1,34 +1,24 @@
-const { debuglog } = require('util');
-
-const LOG = debuglog('@lemuria/absolute-proxy')
-
 /**
  * Assigns Styles To Position Element Absolutely On Top Of The Target One.
- * @param {_@lemuria/absolute-proxy.Config} [config] Options for the program.
- * @param {boolean} [config.shouldRun=true] A boolean option. Default `true`.
- * @param {string} config.text A text to return.
+ * @param {!HTMLElement} obj The target element to position absolutely.
+ * @param {!HTMLElement} element The source element.
  */
-               async function absoluteProxy(config = {}) {
-  const {
-    shouldRun = true,
-    text,
-  } = config
-  if (!shouldRun) return
-  LOG('@lemuria/absolute-proxy called with %s', text)
-  return text
+module.exports=function(obj, element) {
+  const bb = element.getBoundingClientRect()
+  const top = bb.top + window.scrollY
+  const left = bb.left + window.scrollX
+  const width = bb.width
+  const height = bb.height
+
+  const cs = getComputedStyle(element)
+  const pt = parseInt(cs.paddingTop, 10)
+  const pl = parseInt(cs.paddingLeft, 10)
+  const bt = parseInt(cs.borderTopWidth, 10)
+  const bl = parseInt(cs.borderLeftWidth, 10)
+
+  obj.style.position = 'absolute'
+  obj.style.top = top + pt + bt + 'px'
+  obj.style.left = left - pl - bl + 'px'
+  obj.style.width = width + 'px'
+  obj.style.height = height + 'px'
 }
-
-/* documentary types/index.xml */
-/**
- * @suppress {nonStandardJsDocs}
- * @typedef {_@lemuria/absolute-proxy.Config} Config Options for the program.
- */
-/**
- * @suppress {nonStandardJsDocs}
- * @typedef {Object} _@lemuria/absolute-proxy.Config Options for the program.
- * @prop {boolean} [shouldRun=true] A boolean option. Default `true`.
- * @prop {string} text A text to return.
- */
-
-
-module.exports = absoluteProxy
