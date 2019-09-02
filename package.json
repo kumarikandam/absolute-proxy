@@ -31,7 +31,9 @@
   },
   "keywords": [
     "absolute-proxy",
-    "lemuria"
+    "lemuria",
+    "position",
+    "absolute"
   ],
   "author": "Anton <anton@adc.sh>",
   "license": "MIT",
