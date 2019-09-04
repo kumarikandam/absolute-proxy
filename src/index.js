@@ -18,7 +18,7 @@ export default function(obj, element) {
   const bt = parseInt(cs.borderTopWidth, 10)
   const bl = parseInt(cs.borderLeftWidth, 10)
   const br = parseInt(cs.borderRightWidth, 10)
-  const bb = parseInt(cs.borderRightBottom, 10)
+  const bb = parseInt(cs.borderBottomWidth, 10)
 
   obj.style.position = 'absolute'
   obj.style.top = top + (pt + bt) + 'px'
